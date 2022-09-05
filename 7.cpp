@@ -1,45 +1,37 @@
-//butterfly pattern
+// decimal to hexamdecimal
 #include<iostream>
 using namespace std;
+string decimal_to_hexadecimal(int n);
 int main()
 {
-    //defining a constant variable
-    int a;
-    cout<<"No of rows_"; cin>>a;
-
-    //1st half
-    for(int i=1; i<=a; i++)
+    cout<<"Enter any number to obtain its hexadecimal form ";
+    int n;
+    cin>>n;
+    cout << decimal_to_hexadecimal(n);
+}
+string decimal_to_hexadecimal(int p)
+{
+   int x=1;
+   string ans="";
+   while(x<=p)
+   {
+    x*=16;
+   }
+   x/=16;
+   while(x>0)
+   {
+    int lastdigit = p/x;
+    p-=lastdigit*x;
+    x/=16;
+    if(lastdigit <= 9)
     {
-        for(int j=1; j<=(2*a); j++)
-        {
-            if(j<=i||j>=((2*a+1)-i))
-            {
-                cout<<" * ";
-            }
-            else
-            {
-                cout<<"   ";
-            }
-        }
-        cout<<"\n\n";
+        ans = ans + to_string(lastdigit);
     }
-    //-----------------------***------------------//
-
-    //2nd half
-    for(int p=1; p<=a; p++)
+    else
     {
-        for(int q=1; q<=(2*a); q++)
-        {
-            if(q<=((a+1)-p) || q>=(a+p))
-            {
-               cout<<" * ";
-            }
-            else
-            {
-                cout<<"   ";
-            }
-        }
-        cout<<"\n\n";
+        char c = 'A' + lastdigit - 10;
+        ans.push_back(c);
     }
-
+   }
+   return ans;
 }

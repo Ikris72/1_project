@@ -1,19 +1,24 @@
+//sum of 1st n natural numbers
 #include<iostream>
 using namespace std;
+int sum(int n);
 int main()
 {
-    int a, b;
-    cout<<"Enter the number of rows-\n";
-    cin>>a;
-    cout<<"Enter the number of column-\n";
-    cin>>b;
-    for(int i=1; i<=a; i++)
+    cout<<"Enter the number of terms:-";
+    int n;
+    cin>>n;
+    cout<<"\n"<<sum(n);
+}
+int sum(int p)
+{
+    int sum=0;
+    for(int i=1; i<=p; i++)
     {
-        for(int p=1; p<=b; p++)
-        {
-            cout<<" * ";
-        }
-        cout<<"\n\n";
+        sum=sum+i;
+        if(i==p)
+        cout<<i;
+        else
+        cout<<i<<" + ";
     }
-
+    return sum;
 }

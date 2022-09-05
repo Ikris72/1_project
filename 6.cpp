@@ -1,18 +1,30 @@
-//floyd's triangle
+//decimal to octal
 #include<iostream>
 using namespace std;
+int decimal_to_octal(int n);
 int main()
 {
-    int a, j;
-    int count=1;
-    cout<<"Enter number of rows_"; cin>>a;
-    for(int i=1; i<=a; i++)
-    {
-        for (j = 1; j <= i; j++)
-        {
-            cout<<count<<"  ";
-            count++;
-        }
-     cout<<"\n\n";
-    }
+    cout<<"Enter any number to obtain its octal form ";
+    int n;
+    cin>>n;
+    cout<<decimal_to_octal(n);
 }
+int decimal_to_octal(int p)
+{
+    int x=1;
+    int ans=0;
+    while(x<=p)
+    {
+        x*=8;
+    }
+    x/=8;
+    while(x>0)
+    {
+          int lastdigit = p/x;
+        p -= lastdigit*x;
+        x/=8;
+        ans = ans*10 + lastdigit;
+    }  
+    return ans;
+}
+
